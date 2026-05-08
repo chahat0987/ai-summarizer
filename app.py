@@ -3,9 +3,11 @@ from google import genai
 import PyPDF2
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-# Gemini client
-client = genai.Client(api_key="AIzaSyA2zU5ThcmiTBw40eDgFMcrmY4dlsStgF8")
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 st.title("🤖 PDF RAG Chatbot")
 
